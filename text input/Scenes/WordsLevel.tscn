@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/WordsLevel.gd" type="Script" id=1]
+[ext_resource path="res://Assets/RightArrow.png" type="Texture" id=2]
+[ext_resource path="res://Assets/LeftArrow.png" type="Texture" id=3]
+[ext_resource path="res://Assets/home.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/HomeButton.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Font/PartyConfettiRegular-eZOn3.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Font/PartyConfettiRegular-eZOn3.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 89
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="CubeMesh" id=5]
+
+[node name="WordsLevel" type="Control"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 1040.0
+margin_bottom = 616.0
+color = Color( 0.239216, 0.258824, 0.52549, 1 )
+
+[node name="WordLabel" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 264.0
+margin_right = 761.0
+margin_bottom = 327.0
+custom_colors/font_color = Color( 0.921569, 0.678431, 0.211765, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+
+[node name="LeftButton" type="TextureButton" parent="."]
+margin_left = 104.0
+margin_top = 224.0
+margin_right = 404.0
+margin_bottom = 508.0
+rect_scale = Vector2( 0.505644, 0.505644 )
+texture_normal = ExtResource( 3 )
+
+[node name="RightButton" type="TextureButton" parent="."]
+margin_left = 816.0
+margin_top = 224.0
+margin_right = 1116.0
+margin_bottom = 508.0
+rect_scale = Vector2( 0.502452, 0.502452 )
+texture_normal = ExtResource( 2 )
+
+[node name="GameTextLabel" type="Label" parent="."]
+margin_left = 272.0
+margin_top = 120.0
+margin_right = 808.0
+margin_bottom = 193.0
+custom_colors/font_color = Color( 0.866667, 0.647059, 0.921569, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "word glossary"
+align = 1
+valign = 1
+
+[node name="Shapes" type="Node2D" parent="."]
+
+[node name="Shape01" type="MeshInstance2D" parent="Shapes"]
+position = Vector2( 517.389, 198.514 )
+rotation = 1.57079
+scale = Vector2( 7.51348, 539.611 )
+mesh = SubResource( 5 )
+
+[node name="Shape04" type="MeshInstance2D" parent="Shapes"]
+position = Vector2( 528, 392 )
+rotation = 1.57079
+scale = Vector2( 7.51348, 539.611 )
+mesh = SubResource( 5 )
+
+[node name="Shape02" type="MeshInstance2D" parent="Shapes"]
+visible = false
+position = Vector2( 255.999, 294.299 )
+rotation = 3.14159
+scale = Vector2( 7.51348, 100.869 )
+mesh = SubResource( 5 )
+
+[node name="Shape03" type="MeshInstance2D" parent="Shapes"]
+visible = false
+position = Vector2( 815.999, 295.337 )
+rotation = 3.14159
+scale = Vector2( 7.51348, 99.8297 )
+mesh = SubResource( 5 )
+
+[node name="HomeButton" type="TextureButton" parent="."]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 544.0
+margin_bottom = 528.0
+rect_scale = Vector2( 0.148964, 0.148964 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_RightButton_pressed"]

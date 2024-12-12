@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Submit Button.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/close button.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/TitleLabel.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Font/HelloGraduationSans-d9enl.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 62
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Font/PartyConfettiRegular-eZOn3.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -24.0
+margin_top = -9.0
+margin_right = 1034.0
+margin_bottom = 607.0
+color = Color( 0.356863, 0.2, 0.564706, 1 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 176.0
+margin_top = 232.0
+margin_right = 857.0
+margin_bottom = 288.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 368.0
+margin_top = 165.0
+margin_right = 668.0
+margin_bottom = 233.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+margin_left = 192.0
+margin_top = 112.0
+margin_right = 863.0
+margin_bottom = 193.0
+custom_colors/font_color = Color( 0.870588, 0.956863, 0.254902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "is this word taken?"
+align = 1
+script = ExtResource( 5 )
+
+[node name="Button" type="TextureButton" parent="."]
+margin_left = 400.0
+margin_top = 320.0
+margin_right = 2800.0
+margin_bottom = 1088.0
+rect_scale = Vector2( 0.0933449, 0.0933449 )
+texture_normal = ExtResource( 2 )
+
+[node name="ExitButton" type="TextureButton" parent="."]
+margin_left = 857.0
+margin_top = 24.0
+margin_right = 3857.0
+margin_bottom = 3024.0
+rect_scale = Vector2( 0.027268, 0.027268 )
+texture_normal = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
